@@ -20,17 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-
-  /* Include paths */
-  "paths": {
-    "@/*": ["/*"],
-    "@src/*": ["src/*"],
-    "@components/*": ["src/components/*"],
-    "@hooks/*": ["src/hooks/*"],
-    "@assets/*": ["src/assets/*"],
-    "@images/*": ["src/assets/images/*"],
-    "@utils/*": ["src/utils/*"],
-  },
   
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

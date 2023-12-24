@@ -1,4 +1,3 @@
-import React from "react";
 import AccountInfoLarge from "../../../components/AccountInfo/AccountInfoLarge";
 
 const ExpandedSidePanel = () => {
