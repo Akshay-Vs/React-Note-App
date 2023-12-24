@@ -1,0 +1,11 @@
+.expanded-side-panel {
+    .top {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 14px;
+        svg {
+            margin-right: 10%;
+        }
+    }
+}

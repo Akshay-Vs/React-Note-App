@@ -5,18 +5,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #ffffff;
-  height: $top-nav-height;
-  width: $top-nav-width;
-
-  position: absolute;
-  right: 0;
+  background-color: #5a4c4c;
+  transition: all 300ms ease-in-out;
 }
 
-.collapsed {
-  width: $top-nav-collapsed;
+.collapsed-top-container {
+  margin-left: $side-panel-collapsed;
+  width: calc(100vw - #{$side-panel-collapsed});
+  height: 8vh;
 }
 
-.expanded {
-  width: $top-nav-width;
+.expanded-top-container {
+  margin-left: $side-panel-width;
+  width: calc(100vw - #{$side-panel-width});
+  height: 8vh;
 }

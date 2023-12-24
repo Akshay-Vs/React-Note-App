@@ -11,7 +11,7 @@ const TopContainer = ({ children }: Props) => {
   return (
     <nav
       className={`top-container ${
-        isCollapsed === "true" ? "collapsed" : "expanded"
+        isCollapsed === "true" ? "collapsed-top-container" : "expanded-top-container"
       }`}
     >
       {children}

@@ -3,19 +3,17 @@
 .main-container {
   display: flex;
   flex-direction: column;
-
-  height: $main-panel-height;
-  background-color: #f9f9f9;
-
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  background-color: rgb(153, 143, 143);
+  height: calc(100vh - 8vh);
+  transition: all 300ms ease-in-out;
 }
 
-.collapsed {
-  width: $main-panel-collapsed;
+.collapsed-main-container {
+  margin-left: $side-panel-collapsed;
+  width: calc(100vw - #{$side-panel-collapsed});
 }
 
-.expanded {
-  width: $main-panel-width;
+.expanded-main-container {
+  margin-left: $side-panel-width;
+  width: calc(100vw - #{$side-panel-width});
 }

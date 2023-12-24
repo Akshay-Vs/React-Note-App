@@ -11,7 +11,7 @@ const MainContainer = ({ children }: Props) => {
   return (
     <main
       className={`main-container ${
-        isCollapsed === "true" ? "collapsed" : "expanded"
+        isCollapsed === "true" ? "collapsed-main-container" : "expanded-main-container"
       }`}
     >
       {children}
