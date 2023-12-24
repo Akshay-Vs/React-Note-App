@@ -1,0 +1,21 @@
+@import "../../shared/measurements.scss";
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+
+  height: $main-panel-height;
+  background-color: rgb(190, 190, 190);
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.collapsed {
+  width: $main-panel-width;
+}
+
+.expanded {
+  width: 100vw;
+}

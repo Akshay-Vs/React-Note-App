@@ -1,0 +1,22 @@
+@import "../../shared/measurements.scss";
+
+.top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #c9c9c9;
+  height: $top-nav-height;
+  width: $top-nav-width;
+
+  position: absolute;
+  right: 0;
+}
+
+.collapsed {
+  width: $top-nav-width;
+}
+
+.expanded {
+  width: 100vw;
+}

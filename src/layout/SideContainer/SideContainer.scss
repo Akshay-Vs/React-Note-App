@@ -1,0 +1,14 @@
+@import "../../shared/color-palette.scss";
+@import "../../shared/measurements.scss";
+
+.side-pannel-container {
+    display: flex;
+    flex-direction: column;
+    width: $side-pannel-width;
+    height: $side-pannel-height;
+    background-color: $container-background-color;
+
+    position:absolute;
+    top:0;
+    left:0;
+}

@@ -1,0 +1,11 @@
+$side-pannel-width:17.19%;
+$side-pannel-height:100vh;
+
+$top-nav-width: calc(100vw - #{$side-pannel-width});
+$top-nav-height: 8vh;
+
+$main-panel-width: calc(100vw - #{$side-pannel-width});
+$main-panel-height: calc(100vh - 8vh);
+
+$bottom-nav-height:0 ;
+$bottom-nav-width: 0 ;
