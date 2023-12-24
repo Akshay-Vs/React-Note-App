@@ -1,4 +1,5 @@
 import "./SideContainer.scss";
+import { useQuery } from "../../hooks/useQuery";
 
 interface Props {
   children: React.ReactNode;
@@ -6,7 +7,17 @@ interface Props {
 }
 
 const SideContainer = ({ children, onClick }: Props) => {
-  return <aside onClick={onClick} className="side-pannel-container">{children}</aside>;
+  const { isCollapsed } = useQuery();
+  return (
+    <aside
+      onClick={onClick}
+      className={`side-pannel-container ${
+        isCollapsed === "true" ? "collapsed" : "expanded"
+      }`}
+    >
+      {children}
+    </aside>
+  );
 };
 
 export default SideContainer;

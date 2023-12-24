@@ -1,0 +1,11 @@
+img {
+  width: 38px;
+  height: 38px;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

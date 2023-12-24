@@ -1,0 +1,29 @@
+@import "../../../shared/measurements.scss";
+
+.collapsed-side-panel {
+  width: 100%;
+  height: 100vh;
+  transition: all 300ms ease-in-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: center;
+
+  .top-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    flex:0;
+    margin: 0 .5%;
+
+    .bottom-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transform: translate(0, 47vh);
+    }
+  }
+}

@@ -2,13 +2,21 @@
 @import "../../shared/measurements.scss";
 
 .side-pannel-container {
-    display: flex;
-    flex-direction: column;
-    width: $side-pannel-width;
-    height: $side-pannel-height;
-    background-color: $container-background-color;
+  display: flex;
+  flex-direction: column;
+  height: $side-panel-height;
+  background-color: $container-background-color;
+  transition: all 300ms ease-in-out;
 
-    position:absolute;
-    top:0;
-    left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.collapsed {
+  width: $side-panel-collapsed;
+}
+
+.expanded {
+  width: $side-panel-width;
 }

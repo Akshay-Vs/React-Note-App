@@ -1,0 +1,17 @@
+.icon-button {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 21px 15px;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+svg {
+  fill: rgba(60, 60, 60, 0.6);
+}

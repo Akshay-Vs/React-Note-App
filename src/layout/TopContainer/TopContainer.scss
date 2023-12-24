@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #c9c9c9;
+  background-color: #ffffff;
   height: $top-nav-height;
   width: $top-nav-width;
 
@@ -14,9 +14,9 @@
 }
 
 .collapsed {
-  width: $top-nav-width;
+  width: $top-nav-collapsed;
 }
 
 .expanded {
-  width: 100vw;
+  width: $top-nav-width;
 }

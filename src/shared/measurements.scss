@@ -1,11 +1,14 @@
-$side-pannel-width:17.19%;
-$side-pannel-height:100vh;
+$side-panel-width:17.19%;
+$side-panel-height:100vh;
+$side-panel-collapsed: 5%;
 
-$top-nav-width: calc(100vw - #{$side-pannel-width});
+$top-nav-width: calc(100vw - #{$side-panel-width});
 $top-nav-height: 8vh;
+$top-nav-collapsed: calc(100vw - 5%);
 
-$main-panel-width: calc(100vw - #{$side-pannel-width});
+$main-panel-width: calc(100vw - #{$side-panel-width});
 $main-panel-height: calc(100vh - 8vh);
+$main-panel-collapsed: calc(100vw - 5%);
 
 $bottom-nav-height:0 ;
 $bottom-nav-width: 0 ;
