@@ -1,0 +1,17 @@
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin: 30px;
+  padding: 30px;
+  padding-top: 0px;
+  overflow-y: auto;
+
+  > * {
+    max-width: 354px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+}
