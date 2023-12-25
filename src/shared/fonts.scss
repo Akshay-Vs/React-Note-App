@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 
 @mixin font-rubik($weight, $size, $color) {
-    font-family: "Rubik", sans-serif;
+    font-family: "Rubik";
     font-weight: $weight;
     font-size: $size;
     color: $color;

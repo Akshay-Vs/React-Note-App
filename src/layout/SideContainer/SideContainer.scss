@@ -15,8 +15,10 @@
 
 .collapsed {
   width: $side-panel-collapsed;
+  min-width: 50px;
 }
 
 .expanded {
   width: $side-panel-width;
+  min-width: calc(280px);
 }

@@ -3,17 +3,17 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(153, 143, 143);
+  background-color: #fafafa;
   height: calc(100vh - 8vh);
   transition: all 300ms ease-in-out;
 }
 
 .collapsed-main-container {
-  margin-left: $side-panel-collapsed;
+  margin-left: max($side-panel-collapsed, 50px);
   width: calc(100vw - #{$side-panel-collapsed});
 }
 
 .expanded-main-container {
-  margin-left: $side-panel-width;
-  width: calc(100vw - #{$side-panel-width});
+  margin-left: max($side-panel-width, 280px);
+  width: calc(100vw - #{max($side-panel-width, 280px)});
 }

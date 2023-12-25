@@ -1,0 +1,26 @@
+@import "../../../shared/fonts.scss";
+@import "../../../shared/color-palette.scss";
+
+.icon-button-large {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  h1 {
+    @include font-rubik(500, 18px, $icon-color);
+    margin: 8px;
+  }
+}

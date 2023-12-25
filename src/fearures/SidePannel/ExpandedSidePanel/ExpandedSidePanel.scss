@@ -1,11 +1,26 @@
 .expanded-side-panel {
-    .top {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 14px;
-        svg {
-            margin-right: 10%;
-        }
+  .top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 14px;
+    svg {
+      margin-right: 10%;
+      cursor: pointer;
     }
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 55px;
+    margin-left: 29px;
+
+    .buttons {
+      margin-top: 20px;
+      margin-left: 8px;
+    }
+  }
 }
