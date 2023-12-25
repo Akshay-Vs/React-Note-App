@@ -127,7 +127,7 @@ const ExpandedSidePanel = () => {
         </div>
         <ButtonPrimary
           text="Create New"
-          onClick={() => setQuery({ view: "new", name: "untitled" })}
+          onClick={() => setQuery({ view: "new"})}
         />
       </div>
     </div>

@@ -1,28 +1,41 @@
 import "./NotesCard.scss";
-
+import { useSetQuery } from "../../hooks/useSetQuery";
 interface Props {
+  id: string;
   title: string;
   time: string;
   description: string;
   info: string;
 }
 
-const NotesCard = ({title, time, description, info}:Props): JSX.Element => {
+const NotesCard = ({
+  id,
+  title,
+  time,
+  description,
+  info,
+}: Props): JSX.Element => {
+  const SetQuery = useSetQuery();
+
   return (
-    <div className="notes-card">
+    <div
+      className="notes-card"
+      onClick={() => {
+        SetQuery({ id: id, view: "editor" });
+      }}
+    >
       <div className="wrapper-top">
         <div className="text-wrapper-title">{title}</div>
         <div className="text-wrapper-time">{time}</div>
       </div>
       <div className="wrapper-middle">
-        <p className="text-description">
-          {description}
-        </p>
+        <p className="text-description">{description}</p>
       </div>
       <div className="wrapper-bottom">
         <div className="text-wrapper-info">{info}</div>
         <div className="wrapper-icons">
-          <svg className="icon"
+          <svg
+            className="icon"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -48,7 +61,7 @@ const NotesCard = ({title, time, description, info}:Props): JSX.Element => {
             </g>
           </svg>
           <svg
-          className="icon"
+            className="icon"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
