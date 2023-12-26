@@ -1,0 +1,74 @@
+@import "../../../shared/color-palette.scss";
+@import "../../../shared/fonts.scss";
+
+.info-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    @include font-rubik(500, 14px, $text-color);
+
+    .status {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+
+        p {
+            margin-left:5px;
+        }
+    }
+
+    .size {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .font {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+
+        .font-size {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right:5px;
+
+            select {
+                width: 50px;
+                height: 30px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                @include font-rubik(500, 14px, $text-color);
+
+                &:focus {
+                    outline: none;
+                }
+            }            
+        }
+
+        .font-family {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+
+            select {
+                width: 100%;
+                height: 30px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px;
+                @include font-rubik(500, 14px, $text-color);
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}

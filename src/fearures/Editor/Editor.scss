@@ -1,0 +1,24 @@
+@import "../../shared/fonts.scss";
+@import "../../shared/color-palette.scss";
+
+.editor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    textarea {
+        width: 95%;
+        height: 95%;
+        border: none;
+        outline: none;
+        resize: none;
+        padding: 10px;
+        background-color: #F9F9F9;
+        border-radius: 10px;
+        @include font-rubik(500, 14px, $text-color);
+    }
+}

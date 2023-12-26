@@ -49,6 +49,7 @@ const SearchBarSmall = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyDown}
+        placeholder="Search notes..."
       />
     </div>
   );

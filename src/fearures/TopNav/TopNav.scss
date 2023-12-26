@@ -2,13 +2,27 @@
 @import "../../shared/fonts.scss";
 
 .top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+
+  .flex-1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 50%;
 
     .title {
-        @include font-rubik(500, 24px, $text-color);
-        margin-left: 30px;
+      @include font-rubik(500, 24px, $text-color);
+      margin-left: 30px;
     }
+  }
+
+  .flex-2 {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }

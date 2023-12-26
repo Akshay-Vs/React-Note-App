@@ -1,7 +1,7 @@
 import AccountInfoLarge from "../../../components/AccountInfo/AccountInfoLarge";
 import "./ExpandedSidePanel.scss";
 import { useSetQuery } from "../../../hooks/useSetQuery";
-import SearchBarSmall from "../../../components/SearchBar/searchBarSmall";
+import SearchBarSmall from "../../../components/SearchBar/SearchBarSmall";
 import IconButtonLarge from "../../../components/Button/IconButtonLarge/IconButtonLarge";
 import ButtonPrimary from "../../../components/Button/ButtonPrimary";
 

@@ -6,13 +6,13 @@ interface Props {
 }
 
 const TopContainer = ({ children }: Props) => {
-  const { isCollapsed } = useQuery();
+  const { isCollapsed, view } = useQuery();
 
   return (
     <nav
       className={`top-container ${
         isCollapsed === "true" ? "collapsed-top-container" : "expanded-top-container"
-      }`}
+      } ${view === "new" || view === "editor" ? "white" : "grey"}`}
     >
       {children}
     </nav>

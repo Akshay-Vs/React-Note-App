@@ -5,10 +5,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #fafafa;
   transition: all 300ms ease-in-out;
 }
 
+.white {
+  background-color: #fff;
+}
+.grey {
+  background-color: #fafafa;
+}
 .collapsed-top-container {
   margin-left: max($side-panel-collapsed, 50px);
   width: calc(100vw - #{$side-panel-collapsed});
