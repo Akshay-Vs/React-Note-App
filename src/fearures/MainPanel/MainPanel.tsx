@@ -6,7 +6,9 @@ import Editor from "../Editor";
 const MainPanel = () => {
   const { view } = useQuery();
   return (
-    <MainContainer>{view === "home" ? <Home /> : <Editor />}</MainContainer>
+    <MainContainer>
+      {view === "new" || view == "editor" ? <Editor /> : <Home />}
+    </MainContainer>
   );
 };
 
