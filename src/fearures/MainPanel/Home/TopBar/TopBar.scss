@@ -1,0 +1,39 @@
+@import "../../../../shared/color-palette.scss";
+@import "../../../../shared/fonts.scss";
+
+.top-bar {
+  width: 100%;
+  min-height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .top-bar-wrapper {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background: #e5e5e559;
+    padding: 0px 20px;
+
+    .text-wrapper {
+      @include font-rubik(400, 18px, $text-color);
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    .month-dropdown {
+      @include font-rubik(400, 13px, $text-color);
+      width: 200px;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px;
+    }
+  }
+}

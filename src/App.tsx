@@ -1,12 +1,12 @@
 import SidePannel from "./fearures/SidePanel";
 import MainPanel from "./fearures/MainPanel";
-import TopContainer from "./layout/TopContainer";
+import TopNav from "./fearures/TopNav";
 
 const App = () => {
   return (
     <div>
       <SidePannel />
-      <TopContainer>Top Pannel</TopContainer>
+      <TopNav />
       <MainPanel />
     </div>
   );

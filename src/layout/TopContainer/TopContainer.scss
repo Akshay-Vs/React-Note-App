@@ -12,11 +12,11 @@
 .collapsed-top-container {
   margin-left: max($side-panel-collapsed, 50px);
   width: calc(100vw - #{$side-panel-collapsed});
-  height: 8vh;
+  height: 10vh;
 }
 
 .expanded-top-container {
   margin-left: max($side-panel-width, 280px);
   width: calc(100vw - #{max($side-panel-width, 280px)});
-  height: 8vh;
+  height: 10vh;
 }

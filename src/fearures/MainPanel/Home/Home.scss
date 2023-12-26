@@ -1,21 +1,25 @@
 .home-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
-  grid-gap: 20px;
-  margin: 30px;
-  padding: 30px;
-  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
-
-  @media (max-width: 1200px) {
+  .card-container {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
-  }
+    grid-gap: 20px;
+    margin: 30px;
+    padding: 30px;
+    padding-top: 0px;
 
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
-  }
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
+    }
 
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
+    }
   }
 }

@@ -1,9 +1,9 @@
 import "./Home.scss";
 import NotesCard from "../../../components/NotesCard";
 import CreateNoteCard from "../../../components/CreateNoteCard";
+import TopBar from "./TopBar";
 
 const data = [
-
   {
     id: 10,
     title: "Employee Wellness Program Overview",
@@ -17,18 +17,21 @@ const data = [
 const Home = () => {
   return (
     <div className="home-container">
-      {data.map((item) => (
-        <NotesCard
-          key={item.id}
-          id={`${item.id}`}
-          title={item.title}
-          time={item.date}
-          description={item.description}
-          info={item.info}
-        />
-      ))}
+      <TopBar />
+      <div className="card-container">
+        {data.map((item) => (
+          <NotesCard
+            key={item.id}
+            id={`${item.id}`}
+            title={item.title}
+            time={item.date}
+            description={item.description}
+            info={item.info}
+          />
+        ))}
 
-      <CreateNoteCard />
+        <CreateNoteCard />
+      </div>
     </div>
   );
 };

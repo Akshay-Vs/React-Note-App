@@ -1,0 +1,14 @@
+@import "../../shared/color-palette.scss";
+@import "../../shared/fonts.scss";
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .title {
+        @include font-rubik(500, 24px, $text-color);
+        margin-left: 30px;
+    }
+}

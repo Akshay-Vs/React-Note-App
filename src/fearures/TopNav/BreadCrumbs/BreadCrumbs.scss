@@ -1,0 +1,31 @@
+@import "../../../shared/fonts.scss";
+@import "../../../shared/color-palette.scss";
+
+.bread-crumbs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: first baseline;
+  height: 100%;
+  margin-left: 30px;
+
+  .username {
+    @include font-rubik(500, 18px, $text-color);
+    margin-right: 10px;
+  }
+
+  .filename {
+    @include font-rubik(500, 18px, $text-color);
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:active,
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+}
