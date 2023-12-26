@@ -1,6 +1,26 @@
+import React, { useState } from "react";
+import { useSetQuery } from "../../../hooks/useSetQuery";
+
 import "./Info.scss";
 
 const Info = () => {
+  const setQuery = useSetQuery();
+  const [currentSize, setCurrentSize] = useState(16);
+  const fontSizes = Array.from({ length: 89 }, (_, i) => i + 12);
+
+  const handleFontChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentSize(Number(event.target.value));
+    setQuery({ size: event.target.value });
+  };
+
+  const visibleSizes = fontSizes.filter(
+    (size) => size >= currentSize - 6 && size <= currentSize + 6
+  );
+  const handleFontFamilyChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setQuery({ family: event.target.value });
+  };
   return (
     <div className="info-container">
       <div className="status">
@@ -33,17 +53,30 @@ const Info = () => {
       <div className="size">12kb</div>
       <div className="font">
         <div className="font-size">
-          <select name="font-size" id="font-size">
-            <option value="12">12</option>
-            <option value="14">14</option>
-            <option value="16">16</option>
+          <select name="font-size" id="font-size" onChange={handleFontChange}>
+            {visibleSizes.map((size) => (
+              <option key={size} value={size} selected={size === currentSize}>
+                {size}
+              </option>
+            ))}
           </select>
         </div>
         <div className="font-family">
-          <select name="font-family" id="font-family">
+          <select
+            name="font-family"
+            id="font-family"
+            onChange={handleFontFamilyChange}
+          >
+            <option value="Rubik">Rubik</option>
+            <option value="Open Sans">Open Sans</option>
+            <option value="PT Serif">PT Serif</option>
+            <option value="Roboto Condensed">Roboto Condensed</option>
             <option value="Arial">Arial</option>
-            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Georgia">Georgia</option>
             <option value="Courier New">Courier New</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Monospace">Monospace</option> {/* Add this line */}
           </select>
         </div>
       </div>

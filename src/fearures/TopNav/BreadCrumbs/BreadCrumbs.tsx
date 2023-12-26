@@ -3,7 +3,7 @@ import { useSetQuery } from "../../../hooks/useSetQuery";
 import "./BreadCrumbs.scss";
 
 const BreadCrumbs = (): JSX.Element => {
-  const [filename, setFilename] = useState("Bread");
+  const [filename, setFilename] = useState("Untitled");
   const setQuery = useSetQuery();
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
