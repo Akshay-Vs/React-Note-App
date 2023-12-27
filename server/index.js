@@ -3,6 +3,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 app.use(cors());
@@ -21,17 +22,18 @@ app.get("/getNote/:id", (req, res) => {
 });
 
 app.get("/getNotes", (req, res) => {
-  console.log("Request received: ", req.body);
+  console.log("Request received to get all notes");
   res.status(200).send(notes);
 });
 
 app.post("/createNote", (req, res) => {
-  const { id, info, text } = req.body;
-  if (!id || !info || !text) {
+  const { info, text } = req.body;
+  if (!info || !text) {
     return res.status(400).send("Invalid request body");
   }
+  const id = uuidv4();
   notes.push({ id, info, text });
-  res.status(200).send("Note created");
+  res.status(200).json({ message: "Note created", id });
 });
 
 app.post("/updateNote", (req, res) => {

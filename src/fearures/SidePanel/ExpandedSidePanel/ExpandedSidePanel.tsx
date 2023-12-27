@@ -3,7 +3,7 @@ import "./ExpandedSidePanel.scss";
 import { useSetQuery } from "../../../hooks/useSetQuery";
 import SearchBarSmall from "../../../components/SearchBar/SearchBarSmall";
 import IconButtonLarge from "../../../components/Button/IconButtonLarge/IconButtonLarge";
-import ButtonPrimary from "../../../components/Button/ButtonPrimary";
+import CreateNote from "./CreateNote/CreateNote";
 
 const ExpandedSidePanel = () => {
   const setQuery = useSetQuery();
@@ -125,10 +125,7 @@ const ExpandedSidePanel = () => {
             text="Trash"
           />
         </div>
-        <ButtonPrimary
-          text="Create New"
-          onClick={() => setQuery({ view: "new"})}
-        />
+        <CreateNote />
       </div>
     </div>
   );

@@ -1,11 +1,47 @@
 import "./CreateNoteCard.scss";
 import { useSetQuery } from "../../hooks/useSetQuery";
+import postData from "../../../utils/postData";
+
+interface SubmitData {
+  text: {
+    title: string;
+    content: string;
+  };
+  info: {
+    timeModified: string;
+    timeCreated: string;
+    fontSize: number;
+    fontFamily: string;
+    isPrivate: boolean;
+  };
+}
 
 const CreateNoteCard = () => {
   const SetQuery = useSetQuery();
 
+  const handleClick = async () => {
+    SetQuery({ view: "new" });
+    const result = await postData<SubmitData>(
+      "http://localhost:5000/createNote",
+      {
+        text: {
+          title: "Untitled",
+          content: "",
+        },
+        info: {
+          timeModified: new Date().toString(),
+          timeCreated: new Date().toString(),
+          fontSize: 16,
+          fontFamily: "Rubik",
+          isPrivate: false,
+        },
+      }
+    );
+    SetQuery({ id: result.id, view: "new" });
+  };
+
   return (
-    <div className="create-note-card" onClick={()=>{SetQuery({view:"new"})}}>
+    <div className="create-note-card" onClick={handleClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100"

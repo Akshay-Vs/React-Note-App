@@ -2,15 +2,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: auto;
-
+  overflow-y: scroll;
+  
   .card-container {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(100px, 354px));
     grid-gap: 20px;
-    margin: 30px;
+    margin: 0 30px;
     padding: 30px;
-    padding-top: 0px;
+    overflow-y: scroll;
+
   }
 }
