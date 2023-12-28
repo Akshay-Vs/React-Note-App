@@ -53,6 +53,7 @@ const Editor = () => {
         }}
         value={text}
         onChange={(e) => setText(e.target.value)}
+        placeholder="Start typing... Press Ctrl + S to save"
       />
     </div>
   );
