@@ -1,10 +1,15 @@
-import Image from "../../../assets/images/userPlaceholder.jpeg"
+import { useUser, UserButton } from "@clerk/clerk-react";
 import "./AccountInfoSmall.scss";
 
 const AccountInfoSmall = () => {
-  return (
-    <img src={Image} alt="" />
-  )
-}
+  const { isSignedIn, isLoaded } = useUser();
+  if (!isLoaded) {
+    return null;
+  }
 
-export default AccountInfoSmall
+  if (isSignedIn) {
+    return <UserButton></UserButton>;
+  }
+};
+
+export default AccountInfoSmall;

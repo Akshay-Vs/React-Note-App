@@ -1,6 +1,9 @@
 import "./CreateNoteCard.scss";
 import { useSetQuery } from "../../hooks/useSetQuery";
 import postData from "../../../utils/postData";
+import { useUser } from "@clerk/clerk-react";
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 interface SubmitData {
   text: {
@@ -18,11 +21,12 @@ interface SubmitData {
 
 const CreateNoteCard = () => {
   const SetQuery = useSetQuery();
+  const { user } = useUser();
 
   const handleClick = async () => {
     SetQuery({ view: "new", id:"" });
     const result = await postData<SubmitData>(
-      "http://localhost:5000/createNote",
+      `${url}/createNote/${user?.id}`,
       {
         text: {
           title: "Untitled",

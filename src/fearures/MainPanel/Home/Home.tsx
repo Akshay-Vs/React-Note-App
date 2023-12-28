@@ -6,23 +6,28 @@ import TopBar from "./TopBar";
 import getData from "../../../../utils/getData";
 import { NoteItem } from "../../../../types/requestData";
 import { useQuery } from "../../../hooks/useQuery";
+import { useUser } from "@clerk/clerk-react";
 
-const url = "http://localhost:5000";
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const Home = () => {
   const [data, setData] = useState<NoteItem[]>([]);
   const { month, s, d } = useQuery();
+  const { user, isLoaded } = useUser();
 
   useEffect(() => {
     console.log("useEffect ran, d is", d);
     const fetchData = async () => {
-      const result: NoteItem[] = await getData(`${url}/getNotes`);
+      const result: NoteItem[] = await getData(`${url}/getNotes/${user?.id}`);
       setData(result);
     };
 
     fetchData();
-  }, [d]);
+  }, [d, user?.id]);
 
+  if (!isLoaded) {
+    return null;
+  }
   return (
     <div className="home-container">
       <TopBar />
@@ -51,6 +56,7 @@ const Home = () => {
           .map((item) => (
             <NotesCard
               key={item.id}
+              userId={user?.id.toString() || ""}
               id={`${item.id}`}
               title={item.text.title}
               time={item.info.timeModified.split(" ").slice(1, 3).join(" ")}

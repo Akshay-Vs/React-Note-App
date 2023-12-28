@@ -2,28 +2,31 @@ import { useQuery } from "../../hooks/useQuery";
 import { useEffect, useState } from "react";
 import getData from "../../../utils/getData";
 import postData from "../../../utils/postData";
+import { useUser } from "@clerk/clerk-react";
 import "./Editor.scss";
 
-const url = "http://localhost:5000";
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const Editor = () => {
   const [text, setText] = useState<string>();
   const { size, family, id, view } = useQuery();
+  const { user, isLoaded } = useUser();
 
   useEffect(() => {
     const getContent = async () => {
-      const result = await getData(`${url}/getNote/${id}`);
+      const result = await getData(`${url}/getNote/${user?.id}/${id}`);
       setText(result.text.content);
     };
     view === "editor" && getContent();
-  }, [id, view]);
+  }, [id, view, user]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key === "s") {
         event.preventDefault();
-        postData(`${url}/updateNote`, {
+        postData(`${url}/updateNote/${user?.id}`, {
           id: id,
+          userId: user?.id,
           text: {
             content: text,
           },
@@ -35,7 +38,11 @@ const Editor = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [text, id]);
+  }, [text, user, id]);
+
+  if (!isLoaded) {
+    return null;
+  }
 
   return (
     <div className="editor">

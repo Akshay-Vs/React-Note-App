@@ -56,10 +56,10 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/getNote/:id", async (req, res) => {
+app.get("/getNote/:userId/:id", async (req, res) => {
   try {
     console.log("Request received: ", req.params.id);
-    const note = await db.collection("Notes").findOne({ id: req.params.id });
+    const note = await db.collection("Notes").findOne({ userId: req.params.userId, id: req.params.id });
     res.status(200).send(note);
   } catch (error) {
     console.error(error);
@@ -67,10 +67,11 @@ app.get("/getNote/:id", async (req, res) => {
   }
 });
 
-app.get("/getNotes", async (req, res) => {
+app.get("/getNotes/:userId", async (req, res) => {
   try {
     console.log("Request received to get all notes");
-    const notes = await db.collection("Notes").find({}).toArray();
+    const userId = req.params.userId;
+    const notes = await db.collection("Notes").find({ userId: userId }).toArray();
     res.status(200).send(notes);
   } catch (error) {
     console.error(error);
@@ -78,14 +79,15 @@ app.get("/getNotes", async (req, res) => {
   }
 });
 
-app.post("/createNote", async (req, res) => {
+app.post("/createNote/:userId", async (req, res) => {
   try {
     const { info, text } = req.body;
+    const userId = req.params.userId;
     if (!info || !text) {
       return res.status(400).send("Invalid request body");
     }
     const id = uuidv4();
-    const note = { id, info, text };
+    const note = { id, info, text, userId };
     await db.collection("Notes").insertOne(note);
     res.status(200).json({ message: "Note created", id });
   } catch (error) {
@@ -94,13 +96,14 @@ app.post("/createNote", async (req, res) => {
   }
 });
 
-app.post("/updateNote", async (req, res) => {
+app.post("/updateNote/:userId", async (req, res) => {
   try {
     const { id, info, text } = req.body;
+    const userId = req.params.userId;
     if (!id || (!info && !text)) {
       return res.status(400).send("Invalid request body");
     }
-    const note = await db.collection("Notes").findOne({ id: id });
+    const note = await db.collection("Notes").findOne({ id: id, userId: userId });
     if (!note) {
       return res.status(404).send("Note not found");
     }
@@ -110,7 +113,7 @@ app.post("/updateNote", async (req, res) => {
       if (text.title) updateFields["text.title"] = text.title;
       if (text.content) updateFields["text.content"] = text.content;
     }
-    await db.collection("Notes").updateOne({ id: id }, { $set: updateFields });
+    await db.collection("Notes").updateOne({ id: id, userId: userId }, { $set: updateFields });
     res.status(200).send("Note updated");
   } catch (error) {
     console.error(error);
@@ -118,17 +121,17 @@ app.post("/updateNote", async (req, res) => {
   }
 });
 
-app.post("/deleteNote/:id", async (req, res) => {
+app.post("/deleteNote/:userId/:id", async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id, userId } = req.params;
     if (!id) {
       return res.status(400).send("Invalid request parameters");
     }
-    const note = await db.collection("Notes").findOne({ id: id });
+    const note = await db.collection("Notes").findOne({ id: id, userId: userId });
     if (!note) {
       return res.status(404).send("Note not found");
     }
-    await db.collection("Notes").deleteOne({ id: id });
+    await db.collection("Notes").deleteOne({ id: id, userId: userId });
     res.status(200).send("Note deleted");
   } catch (error) {
     console.error(error);

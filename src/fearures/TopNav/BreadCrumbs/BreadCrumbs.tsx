@@ -3,18 +3,21 @@ import { useSetQuery } from "../../../hooks/useSetQuery";
 import { useQuery } from "../../../hooks/useQuery";
 import postData from "../../../../utils/postData";
 import getData from "../../../../utils/getData";
+import { useUser } from "@clerk/clerk-react";
+
 import "./BreadCrumbs.scss";
 
-const url = "http://localhost:5000";
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const BreadCrumbs = (): JSX.Element => {
   const [filename, setFilename] = useState<string>();
   const setQuery = useSetQuery();
   const { id } = useQuery();
+  const { user } = useUser();
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getData(`${url}/getNote/${id}`);
+      const result = await getData(`${url}/getNote/${user?.id}/${id}`);
       setFilename(result.text.title);
     };
     fetchData();
@@ -25,7 +28,7 @@ const BreadCrumbs = (): JSX.Element => {
   };
 
   const handleTextBlur = () => {
-    postData(`${url}/updateNote`, {
+    postData(`${url}/updateNote/${user?.id}`, {
       id: id,
       text: {
         title: filename,
@@ -35,6 +38,7 @@ const BreadCrumbs = (): JSX.Element => {
       },
     });
   };
+
   return (
     <div className="bread-crumbs">
       <span

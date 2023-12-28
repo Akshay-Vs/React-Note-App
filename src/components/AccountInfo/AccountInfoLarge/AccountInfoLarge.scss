@@ -7,7 +7,7 @@
   align-items: center;
   width: 100%;
 
-  img {
+  .avatar-large {
     width: 38px;
     height: 38px;
     flex-shrink: 0;
@@ -16,6 +16,11 @@
     object-position: center;
     margin-left:28px;
     margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font-rubik(500, 20px, #ffe4e5);
+
   }
 
   h1 {

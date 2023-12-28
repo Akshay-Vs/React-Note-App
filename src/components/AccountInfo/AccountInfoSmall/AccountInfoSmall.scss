@@ -1,11 +1,17 @@
-img {
+@import "../../../shared/fonts.scss";
+@import "../../../shared/color-palette.scss";
+
+.avatar {
   width: 38px;
   height: 38px;
+  flex-shrink: 0;
   border-radius: 100px;
   object-fit: cover;
   object-position: center;
-
-  &:hover {
-    cursor: pointer;
-  }
+  background-color: #e62887;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include font-rubik(500, 20px, #ffe4e5);
+  cursor: pointer;
 }

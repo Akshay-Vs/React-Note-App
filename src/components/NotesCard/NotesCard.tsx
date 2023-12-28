@@ -3,6 +3,7 @@ import { useSetQuery } from "../../hooks/useSetQuery";
 import postData from "../../../utils/postData";
 
 interface Props {
+  userId: string;
   id: string;
   title: string;
   time: string;
@@ -10,9 +11,10 @@ interface Props {
   info: string;
 }
 
-const url = "http://localhost:5000";
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const NotesCard = ({
+  userId,
   id,
   title,
   time,
@@ -22,7 +24,7 @@ const NotesCard = ({
   const SetQuery = useSetQuery();
 
   const handleDelete = () => {
-    postData(`${url}/deleteNote/${id}`);
+    postData(`${url}/deleteNote/${userId}/${id}`);
     SetQuery({ d: id });
   };
 
