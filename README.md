@@ -13,7 +13,7 @@ This is a note-taking application built with Vite, React, and TypeScript, and us
 ## Project Structure
 
 - `/server` - Contains the server-side code
-- `/client` - Contains the client-side code (React application)
+- `/` - Contains the client-side code (React application)
 
 ## Getting Started
 
