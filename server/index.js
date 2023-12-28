@@ -28,15 +28,20 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
+    console.log("Pinging MongoDB...");
     await client.connect();
     db = client.db("DB1");
     console.log("Ping confirmed. MongoDB connection established!");
+
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port} and connected to the database.`);
+    });
   } catch (error) {
     console.error(error);
   }
 }
 
-run().catch(console.dir);
+run();
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -129,8 +134,4 @@ app.post("/deleteNote/:id", async (req, res) => {
     console.error(error);
     res.status(500).send("An error occurred");
   }
-});
-
-app.listen(port, () => {
-  console.log(`server is listening on port: ${port}`);
 });
