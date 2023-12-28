@@ -21,7 +21,7 @@ const BreadCrumbs = (): JSX.Element => {
       setFilename(result.text.title);
     };
     fetchData();
-  }, [id]);
+  }, [id, user]);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilename(e.target.value);
