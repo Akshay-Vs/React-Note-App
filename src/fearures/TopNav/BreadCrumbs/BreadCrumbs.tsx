@@ -47,7 +47,7 @@ const BreadCrumbs = (): JSX.Element => {
           setQuery({ view: "home" });
         }}
       >
-        Akshay Vs /
+        {user?.id} /
       </span>
       <input
         type="text"
