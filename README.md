@@ -2,6 +2,10 @@
 
 This is a note-taking application built with Vite, React, and TypeScript, and uses Clerk for authentication.
 
+<br>
+
+<img src="https://res.cloudinary.com/dtyosjnh4/image/upload/v1703767561/oyn0xwwagncpts48pwal.png"/>
+
 ## Features
 
 - User Authentication with Clerk
@@ -25,3 +29,4 @@ This is a note-taking application built with Vite, React, and TypeScript, and us
      MongoDB username, MongoDB password, Port
 5. ```npm run dev``` - React App
 6. ```cd server && npm run dev``` - Express App
+
