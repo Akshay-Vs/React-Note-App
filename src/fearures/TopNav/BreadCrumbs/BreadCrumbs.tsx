@@ -47,7 +47,7 @@ const BreadCrumbs = (): JSX.Element => {
           setQuery({ view: "home" });
         }}
       >
-        {user?.id} /
+        {user?.username} /
       </span>
       <input
         type="text"
