@@ -8,15 +8,15 @@ const url = "http://localhost:5000";
 
 const Editor = () => {
   const [text, setText] = useState<string>();
-  const { size, family, id } = useQuery();
+  const { size, family, id, view } = useQuery();
 
   useEffect(() => {
     const getContent = async () => {
       const result = await getData(`${url}/getNote/${id}`);
       setText(result.text.content);
     };
-    getContent();
-  }, [id]);
+    view === "editor" && getContent();
+  }, [id, view]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

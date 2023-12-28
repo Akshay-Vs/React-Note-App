@@ -1,5 +1,6 @@
 import "./NotesCard.scss";
 import { useSetQuery } from "../../hooks/useSetQuery";
+import postData from "../../../utils/postData";
 
 interface Props {
   id: string;
@@ -9,6 +10,8 @@ interface Props {
   info: string;
 }
 
+const url = "http://localhost:5000";
+
 const NotesCard = ({
   id,
   title,
@@ -17,6 +20,12 @@ const NotesCard = ({
   info,
 }: Props): JSX.Element => {
   const SetQuery = useSetQuery();
+
+  const handleDelete = () => {
+    postData(`${url}/deleteNote/${id}`);
+    SetQuery({ d: id });
+  };
+
   return (
     <div
       className="notes-card"
@@ -34,7 +43,7 @@ const NotesCard = ({
       <div className="wrapper-bottom">
         <div className="text-wrapper-info">{info}</div>
         <div className="wrapper-icons">
-          <div className="icon">
+          <div className="icon" onClick={() => alert("Not available")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -61,7 +70,13 @@ const NotesCard = ({
               </g>
             </svg>
           </div>
-          <div className="icon">
+          <div
+            className="icon"
+            onClick={(event) => {
+              event.stopPropagation();
+              handleDelete();
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

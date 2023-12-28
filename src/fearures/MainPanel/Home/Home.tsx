@@ -11,18 +11,17 @@ const url = "http://localhost:5000";
 
 const Home = () => {
   const [data, setData] = useState<NoteItem[]>([]);
-  const { month } = useQuery();
+  const { month, s, d } = useQuery();
 
   useEffect(() => {
+    console.log("useEffect ran, d is", d);
     const fetchData = async () => {
-      const result: NoteItem[] = await getData(
-        `${url}/getNotes`
-      );
+      const result: NoteItem[] = await getData(`${url}/getNotes`);
       setData(result);
     };
 
     fetchData();
-  }, []);
+  }, [d]);
 
   return (
     <div className="home-container">
@@ -35,6 +34,19 @@ const Home = () => {
             }
             const itemMonth = item.info.timeModified.split(" ")[1];
             return itemMonth === month;
+          })
+          .filter((item) => {
+            if (!s) {
+              return true;
+            }
+            return (
+              item.text.title
+                .toLowerCase()
+                .includes(s.toString().toLowerCase()) ||
+              item.text.content
+                .toLowerCase()
+                .includes(s.toString().toLowerCase())
+            );
           })
           .map((item) => (
             <NotesCard

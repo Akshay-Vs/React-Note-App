@@ -20,7 +20,7 @@ const CreateNoteCard = () => {
   const SetQuery = useSetQuery();
 
   const handleClick = async () => {
-    SetQuery({ view: "new" });
+    SetQuery({ view: "new", id:"" });
     const result = await postData<SubmitData>(
       "http://localhost:5000/createNote",
       {
