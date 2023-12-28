@@ -6,8 +6,10 @@ This is a note-taking application built with Vite, React, and TypeScript, and us
 
 - User Authentication with Clerk
 - Create, Read, Update, and Delete operations for notes
-- Notes can be marked as private
-
+- Filter by Month
+- Search
+- Customizable font family and font size
+  
 ## Project Structure
 
 - `/server` - Contains the server-side code
