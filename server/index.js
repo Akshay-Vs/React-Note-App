@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const mongodbUsername = process.env.MONGODB_USERNAME;
 const mongodbPassword = process.env.MONGODB_PASSWORD;
 
